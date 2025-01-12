@@ -5,10 +5,13 @@ import sequenceRouter from "./routes/sequence.route.js";
 
 const app = express();
 
-// Update the CORS configuration to allow requests from localhost:5173
+// Update the CORS configuration to allow requests from both local and deployed frontend URLs
 app.use(
   cors({
-    origin: "http://localhost:5173", // Update this to the frontend's URL
+    origin: [
+      "http://localhost:5173", // Local development URL
+      "https://automated-email-sequencer-1.onrender.com", // Deployed frontend URL
+    ],
     credentials: true,
   })
 );
